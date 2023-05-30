@@ -1,0 +1,19 @@
+.root {
+    margin: 20px;
+    min-height: 150px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 135px;
+    cursor: pointer;
+}
+
+.date {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

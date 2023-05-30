@@ -1,0 +1,37 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 250px;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.date {
+    margin: 2px;
+    padding: 2px;
+    border: 2px #000 solid;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.date:hover {
+    border: 2px #fff solid;
+    background-color: #000;
+    color: #fff;
+}
+
+.displayNone {
+    margin: 2px;
+    padding: 2px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
