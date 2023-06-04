@@ -8,15 +8,17 @@ type TypeHeaderForm = {
     month: number,
     setMonth: React.Dispatch<React.SetStateAction<number>>,
     year: number,
-    setYear: React.Dispatch<React.SetStateAction<number>>
+    setYear: React.Dispatch<React.SetStateAction<number>>,
+    showSelectForm: boolean,
+    setShowSelectForm: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-export default function HeaderForm({month, setMonth, year, setYear}: TypeHeaderForm ) {
+export default function HeaderForm({month, setMonth, year, setYear, showSelectForm, setShowSelectForm}: TypeHeaderForm ) {
 
     return (
         <div className={styles.root}>
             <LeftArrow height="15px" width="15px" className={styles.arrow} onClick={() => previousMonth(month, setMonth)}/>
-            <div className={styles.form}>
+            <div className={styles.form} onClick={() => setShowSelectForm(!showSelectForm)}>
                 <MonthComponent month={month} setMonth={setMonth} year={year} setYear={setYear} typeEvent={"form"}/>
                 <YearComponent year={year}/>
             </div>

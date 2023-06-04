@@ -12,26 +12,30 @@ type TypeCalendarForm = {
     month: number,
     setMonth: React.Dispatch<React.SetStateAction<number>>,
     year: number,
-    setYear: React.Dispatch<React.SetStateAction<number>>
+    setYear: React.Dispatch<React.SetStateAction<number>>,
+    showSelectForm: boolean,
+    setShowSelectForm: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 
-export default function CalendarForm({hiddenCalendar, setHiddenCalendar, date, setDate, month, setMonth, year, setYear}: TypeCalendarForm) {
+export default function CalendarForm({hiddenCalendar, setHiddenCalendar, date, setDate, month, setMonth, year, setYear, showSelectForm, setShowSelectForm}: TypeCalendarForm) {
     return (
         <div className={styles.root}>
             <HeaderForm 
                 month={month} 
                 setMonth={setMonth}
                 year={year}
-                setYear={setYear}/>
+                setYear={setYear}
+                showSelectForm={showSelectForm}
+                setShowSelectForm={setShowSelectForm}/>
             <DayComponent />
             <FooterForm 
-                date={date} 
+                date={date}
                 setDate={setDate} 
                 month={month} 
-                setMonth={setMonth}
                 year={year}
-                setYear={setYear}/>
+                hiddenCalendar={hiddenCalendar}
+                setHiddenCalendar={setHiddenCalendar}/>
         </div>
     )
 }

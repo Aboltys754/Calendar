@@ -5,8 +5,8 @@ import {ReactComponent as IconCalendar} from "./img/calendar.svg"
 import YearComponent from "./YearComponent/YearComponent";
 import MonthComponent from "./MonthComponent/MonthComponent";
 import DateComponent from "./DateComponent/DateComponent";
-import DayComponent from "./DayComponent/DayComponent";
 import CalendarForm from "./CalendarForm/CalendarForm";
+import SelectForm from "./SelectForm/SelectForm";
 
 export default function Calendar() {
     const newDate = new Date();
@@ -16,29 +16,34 @@ export default function Calendar() {
 
     // Отображать иконку календаря или форму календаря
     const [hiddenCalendar, setHiddenCalendar] = useState(true)
+    // Отображает форму выбора года и месяца
+    const [showSelectForm, setShowSelectForm] = useState(true)
     
     return (
         <div className={styles.root} >
-            {hiddenCalendar
-            ? <div className={styles.icon} onClick={() => setHiddenCalendar(!hiddenCalendar)}>
-                <IconCalendar height="30px" width="30px"/>
-                <div className={styles.date}>
-                    <DateComponent date={date} setDate={setDate}/>:
-                    <MonthComponent month={month} setMonth={setMonth} year={year} setYear={setYear} typeEvent={"icon"}/>:
-                    <YearComponent year={year} />
-                </div>
-              </div>
-            : <CalendarForm 
-                hiddenCalendar={hiddenCalendar} 
-                setHiddenCalendar={setHiddenCalendar} 
-                date={date} 
-                setDate={setDate} 
-                month={month} 
-                setMonth={setMonth}
-                year={year}
-                setYear={setYear}
-                />
-            }
+            {showSelectForm 
+            ? hiddenCalendar
+                ? <div className={styles.icon} onClick={() => setHiddenCalendar(!hiddenCalendar)}>
+                    <IconCalendar height="30px" width="30px"/>
+                    <div className={styles.date}>
+                        <DateComponent date={date}/>:
+                        <MonthComponent month={month} setMonth={setMonth} year={year} setYear={setYear} typeEvent={"icon"}/>:
+                        <YearComponent year={year} />
+                    </div>
+                  </div>
+                : <CalendarForm 
+                    hiddenCalendar={hiddenCalendar} 
+                    setHiddenCalendar={setHiddenCalendar} 
+                    date={date} 
+                    setDate={setDate} 
+                    month={month} 
+                    setMonth={setMonth}
+                    year={year}
+                    setYear={setYear}
+                    showSelectForm={showSelectForm}
+                    setShowSelectForm={setShowSelectForm}
+                    />            
+            : <SelectForm month={month} setMonth={setMonth} year={year} setYear={setYear} showSelectForm={showSelectForm} setShowSelectForm={setShowSelectForm}/>}            
         </div>
     )
 }
