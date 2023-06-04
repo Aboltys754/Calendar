@@ -13,6 +13,7 @@ export default function Calendar() {
     const [date, setDate] = useState(newDate.getDate());
     const [month, setMonth] = useState(newDate.getMonth());
     const [year, setYear] = useState(newDate.getFullYear());
+    
 
     // Отображать иконку календаря или форму календаря
     const [hiddenCalendar, setHiddenCalendar] = useState(true)

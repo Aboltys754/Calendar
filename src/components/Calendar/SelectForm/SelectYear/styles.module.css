@@ -1,0 +1,32 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 3px #000 solid;    
+    border-radius: 10px;
+    width: 170px;
+    padding: 5px;
+}
+
+.years {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    padding: 5px;
+}
+
+.year {    
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+    padding: 5px;
+    width: 35px;
+    border: 3px #000 solid;
+    border-radius: 10px;
+    cursor: pointer;
+}
