@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import styles from "./styles.module.css"
 
 type SelectForm = {
@@ -18,8 +19,21 @@ export default function SelectMonths({month, setMonth, year, setYear, showSelect
         <div className={styles.root}>
             <div className={styles.year} onClick={() => setShowMonthForm(!showMonthForm)}>{year}</div>
             <div className={styles.months}>
-                {months.map((value, index) => <div key={index} className={styles.month} onClick={() => {setShowSelectForm(!showSelectForm); setMonth(index)}}>{value}</div>)}
+                {months.map((value, index) => <div 
+                                                key={index} 
+                                                className={classNames(styles.month, _currentMonth(index, year) ? styles.currentMonth : null)} 
+                                                onClick={() => {setShowSelectForm(!showSelectForm); setMonth(index)}}>
+                                                    {value}
+                                              </div>)}
             </div>            
         </div>
     )
+}
+
+function _currentMonth(index: number, year: number) {    
+    const newDate = new Date();
+    if (year === newDate.getFullYear() && index === newDate.getMonth()) {
+        return true
+    }
+    return false
 }

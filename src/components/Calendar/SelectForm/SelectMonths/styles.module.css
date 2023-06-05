@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.currentMonth {
+    background-color: #63aff7 !important;
+}
+
 .month:hover {
     background-color: #000;
     color: #ffffff;
